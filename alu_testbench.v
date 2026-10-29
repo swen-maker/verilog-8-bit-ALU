@@ -10,7 +10,6 @@ module alu_tb;
 
     integer tests;
 
-    // Instantiate the ALU
     alu dut (
         .clk(clk),
         .a(a),
@@ -20,13 +19,11 @@ module alu_tb;
         .flag(flag)
     );
 
-    // Generate a clock with a 10 ns period
     initial begin
         clk = 0;
         forever #5 clk = ~clk;
     end
 
-    // Apply inputs and check outputs
     task check;
         input [2:0] op;
         input [7:0] av;
@@ -56,7 +53,6 @@ module alu_tb;
         end
     endtask
 
-    // Run test cases
     initial begin
         $dumpfile("alu.vcd");
         $dumpvars(0, alu_tb);
